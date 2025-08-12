@@ -126,3 +126,16 @@ figcaption{ color:var(--muted); font-size:.9rem; margin-top:6px }
 #news .meta time { white-space: nowrap; }
 #news .link { text-decoration: none; color: inherit; display: block; height: 100%; }
 #news .link:hover .title { text-decoration: underline; color: var(--brand-ink, #452a64); }
+
+.card.is-planned {
+  border-left: 4px solid #fcbf49;
+  background: #fff8e7;
+}
+
+.card.is-closed {
+  border-left: 4px solid #ccc;
+  background: #f8f8f8;
+  color: #666;
+}
+
+
