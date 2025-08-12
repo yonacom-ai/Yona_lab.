@@ -1,0 +1,128 @@
+:root{
+  --bg:#fff8fe;
+  --bg-alt:#f9f5ff;
+  --ink:#2a2333;
+  --muted:#6c5a7a;
+  --brand:#b48ad6;
+  --brand-ink:#452a64;
+  --radius:1.25rem;
+  --shadow:0 8px 24px rgba(69,42,100,.12);
+  --max:1100px;
+  --nav-h:64px;
+}
+
+*{ box-sizing:border-box }
+html{ scroll-behavior:smooth }
+body{
+  margin:0; font:16px/1.8 'M PLUS Rounded 1c', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+  color:var(--ink); background:var(--bg);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+
+/* コンテナ */
+.container{ max-width:var(--max); margin:0 auto; padding:0 16px; }
+
+/* ヘッダーナビ（固定） */
+.top-nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:saturate(1.1) blur(8px);
+  border-bottom:1px solid #eee;
+}
+.top-nav .container{
+  display:flex; gap:12px; align-items:center; height:var(--nav-h);
+}
+.top-nav a{
+  color:var(--muted); text-decoration:none; padding:.4rem .6rem; border-radius:999px;
+}
+.top-nav a:hover{ color:var(--brand-ink); background:#efe7ff80 }
+.nav-toggle{
+  display:none; position:absolute; right:10px; top:10px; border:0; background:transparent; font-size:22px; color:var(--brand-ink);
+}
+
+/* セクション */
+.section{ padding:64px 0 }
+.section.alt{ background:var(--bg-alt) }
+h1{ font-size:clamp(24px,4vw,40px); margin:.2em 0 .6em }
+h2{ font-size:clamp(20px,3vw,28px); margin:0 0 .8rem }
+.lead{ color:var(--muted) }
+
+/* ボタン */
+.btn{
+  display:inline-block; padding:.75rem 1.1rem; border-radius:999px;
+  background:var(--brand); color:#fff; text-decoration:none; box-shadow:var(--shadow);
+  transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease, background .2s ease;
+}
+.btn:hover{ transform:translateY(-2px); box-shadow:0 10px 28px rgba(69,42,100,.18) }
+.btn.ghost{ background:#fff; color:var(--brand-ink); border:1px solid #e5d8ff }
+.btn.ghost:hover{ background:#f3ecff }
+
+/* ボックス/カード */
+.box{
+  background:#fff; border:1px solid #efe7ff; border-radius:var(--radius);
+  padding:16px; box-shadow:var(--shadow); margin:12px 0;
+}
+.cards{ display:grid; gap:16px }
+.cards.cols-3{ grid-template-columns:repeat(auto-fit, minmax(250px,1fr)) }
+.cards.cols-2{ grid-template-columns:repeat(auto-fit, minmax(320px,1fr)) }
+
+.card.is-live{ border-color:#c3f1d6; background:#f4fffa }
+.card.is-planned{ border-color:#dbe6ff; background:#f7fbff }
+.card.is-closed{ border-color:#ffe3f0; background:#fff7fb }
+
+/* 画像表示 */
+figure{ margin:0 0 14px }
+figcaption{ color:var(--muted); font-size:.9rem; margin-top:6px }
+.img-wide img{
+  width:100%; height:auto; display:block; border-radius:12px; box-shadow:var(--shadow);
+}
+.img-grid{
+  display:grid; gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.img-grid img{ width:100%; height:auto; display:block; border-radius:12px; box-shadow:var(--shadow) }
+
+/* プレースホルダ */
+.placeholder{
+  width:100%; min-height:140px; display:grid; place-items:center;
+  color:var(--muted); background:#faf7ff; border:1px dashed #e5d8ff; border-radius:12px;
+}
+
+/* CTA帯 */
+.cta-band{ text-align:center }
+.cta-band .btn{ margin:0 .4rem .6rem }
+
+/* フッター */
+.site-footer{ text-align:center; color:var(--muted); padding:24px 16px; border-top:1px solid #e5d8ff; background:#fff }
+.site-footer .sns a{ margin:0 .5rem; color:var(--brand-ink); text-decoration:none }
+.site-footer .sns a:hover{ text-decoration:underline }
+
+/* ヒーロー */
+.hero{ text-align:center; }
+.hero .cta{ margin-top:12px }
+.hero .btn{ margin:0 .4rem }
+
+
+/* レスポンシブ（モバイル時はナビを折りたたみ） */
+@media (max-width: 720px){
+  .top-nav .container{ overflow:auto; gap:8px }
+}
+
+#news .news {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+#news .news li {
+  border: 1px solid #e5d8ff; border-radius: 12px; background: #fff;
+  box-shadow: 0 6px 18px rgba(69,42,100,.08); overflow: hidden;
+}
+#news .card { display: grid; grid-template-rows: auto 1fr; height: 100%; }
+#news .thumb-wrap { aspect-ratio: 16 / 9; background: #f6f1ff; }
+#news .thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
+#news .body { padding: 12px 14px; display: grid; gap: 6px; }
+#news .title { font-weight: 700; line-height: 1.5; }
+#news .meta { color: var(--muted, #666); font-size: 0.9rem; display:flex; gap:.5rem; align-items:center; }
+#news .meta time { white-space: nowrap; }
+#news .link { text-decoration: none; color: inherit; display: block; height: 100%; }
+#news .link:hover .title { text-decoration: underline; color: var(--brand-ink, #452a64); }
