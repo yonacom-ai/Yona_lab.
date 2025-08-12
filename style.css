@@ -102,6 +102,16 @@ figcaption{ color:var(--muted); font-size:.9rem; margin-top:6px }
 .hero .cta{ margin-top:12px }
 .hero .btn{ margin:0 .4rem }
 
+.card.is-planned {
+  border-left: 4px solid #fcbf49;
+  background: #fff8e7;
+}
+
+.card.is-closed {
+  border-left: 4px solid #ccc;
+  background: #f8f8f8;
+  color: #666;
+}
 
 /* レスポンシブ（モバイル時はナビを折りたたみ） */
 @media (max-width: 720px){
@@ -127,15 +137,6 @@ figcaption{ color:var(--muted); font-size:.9rem; margin-top:6px }
 #news .link { text-decoration: none; color: inherit; display: block; height: 100%; }
 #news .link:hover .title { text-decoration: underline; color: var(--brand-ink, #452a64); }
 
-.card.is-planned {
-  border-left: 4px solid #fcbf49;
-  background: #fff8e7;
-}
 
-.card.is-closed {
-  border-left: 4px solid #ccc;
-  background: #f8f8f8;
-  color: #666;
-}
 
 
